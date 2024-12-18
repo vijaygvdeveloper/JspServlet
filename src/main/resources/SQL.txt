@@ -1,0 +1,45 @@
+--------------------------------------------------3.0-----------------------------------------------------------
+
+CREATE TABLE Showroom3 (
+    showroomId INT PRIMARY KEY,
+    showroomName VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Car3 (
+    carId INT PRIMARY KEY,
+    carModel VARCHAR(100) NOT NULL,
+    showroomId INT,
+    FOREIGN KEY (showroomId) REFERENCES Showroom3(showroomId)
+);
+
+
+
+---------------------------------------------------------4.0---------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE Showroom4 (
+    showroomId INT NOT NULL AUTO_INCREMENT,
+    location VARCHAR(255) DEFAULT NULL,
+    manager VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (showroomId)
+);
+
+CREATE TABLE Car4 (
+    carId INT NOT NULL AUTO_INCREMENT,
+    carName VARCHAR(255) DEFAULT NULL,
+    color VARCHAR(255) DEFAULT NULL,
+    showroomId INT,
+    PRIMARY KEY (carId),
+    FOREIGN KEY (showroomId) REFERENCES Showroom4(showroomId)
+);
+
+CREATE TABLE Showroom_Car4 (
+    showroom_id INT NOT NULL,
+    car_id INT NOT NULL,
+    PRIMARY KEY (showroom_id, car_id),
+    FOREIGN KEY (showroom_id) REFERENCES Showroom4(showroomId),
+    FOREIGN KEY (car_id) REFERENCES Car4(carId)
+);
+
+ALTER TABLE Car4 AUTO_INCREMENT = 1000;

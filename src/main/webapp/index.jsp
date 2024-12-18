@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Hello World Java EE</title>
+<title>Redirecting...</title>
 </head>
 <body>
-    <h1>Hello JSP and Servlet!</h1>
+<%
+    response.sendRedirect("employee?action=list");
+%>
 </body>
 </html>
